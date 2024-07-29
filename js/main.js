@@ -114,7 +114,34 @@ function error(err) {
   errorElement.find(".alert").text(err.message);
 }
 
+// let cart;
+let loadHTML = (file, elementId) => {
+  return fetch(file)
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById(elementId).innerHTML = data;
+    })
+    .catch((error) => console.error("Error loading HTML:", error));
+};
+let cartManager;
+let loadCart=async ()=>{
+  try {
+    await Promise.all([
+      // $("#navbar-container").load("navbar.html"),
+      // $("#cart-container").load("cart.html"),
+      loadHTML("navbar.html", "navbar-container"),
+      loadHTML("cart.html", "cart-container"),
+    ]);
+  } catch (e) {
+    console.log(e);
+  }
+}
 
+loadCart().then(() => {
+  cartManager = new CartManager();
+  console.log(cartManager);
+  // console.log(document.innerHTML);
+  console.log(document.querySelector("#cart"));
+});
 
-const cartManager = new CartManager();
 //while items is loading disable all other elements in the categories

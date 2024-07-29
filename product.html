@@ -3,15 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script src="js/all.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <title>product</title>
   </head>
   <body>
+    <div id="navbar-container" class="position-fixed z-2"></div>
+    <!-- Cart Container -->
+    <div
+      id="cart-container"
+      class="cart-container hide position-fixed col-sm-12 col-md-3 col-12 h-100 top-0 end-0 bg-light z-3 mh-90 overflow-y-scroll overflow-x-hidden"
+    ></div>
+
     <div class="container">
       <div class="main">
         <div
@@ -19,17 +26,9 @@
           class="carousel slide"
           data-bs-touch="false"
         >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="..." class="d-block w-100" alt="img-idx" />
-            </div>
-            <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="img-idx" />
-            </div>
-            <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="img-idx" />
-            </div>
-          </div>
+          <div
+            class="carousel-inner align-items-center justify-content-center"
+          ></div>
           <button
             class="carousel-control-prev"
             type="button"
@@ -49,12 +48,10 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <div class="row content">
-        <!-- <p>dddk</p>
-        <p>dddk</p>
-        <p>dddk</p>
-        <p>dddk</p>
-        <p>dddk</p> -->
+        <div class="row content gap-2"></div>
+        <div class="row">
+          <h5>Reviews</h5>
+          <div class="reviews"></div>
         </div>
       </div>
     </div>
@@ -67,24 +64,18 @@
 
     <script src="js/jquery-3.7.1.min.js"></script>
     <!-- <script type="module" src="js/main.js"></script> -->
-    <script src="js/features/singleProduct.js"></script>
+    <script type="module" src="js/features/singleProduct.js"></script>
   </body>
 </html>
 <!-- 
 {
     "id": 3,
-    "title": "Powder Canister",
-    "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
-    "category": "beauty",
-    "price": 14.99,
     "discountPercentage": 18.14,
-    "rating": 3.82,
     "stock": 59,
     "tags": [
         "beauty",
         "face powder"
     ],
-    "brand": "Velvet Touch",
     "sku": "9EN8WLT2",
     "weight": 8,
     "dimensions": {
@@ -92,9 +83,6 @@
         "height": 10.7,
         "depth": 11.07
     },
-    "warrantyInformation": "2 year warranty",
-    "shippingInformation": "Ships in 1-2 business days",
-    "availabilityStatus": "In Stock",
     "reviews": [
         {
             "rating": 5,

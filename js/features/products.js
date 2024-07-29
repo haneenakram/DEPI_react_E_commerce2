@@ -57,26 +57,16 @@ export function successProducts(data) {
   );
 }
 itemsElement.on("click", function (e) {
-  const productBox = $(e.target).closest(".col-md-4");
-  console.log("Product box:", productBox);
-  if (productBox) {
-    const addButton = productBox.find(".btn");
-    const productData = JSON.parse(addButton.attr("data-product"));
-    console.log("Product Data:", productData);
-    const itemId = $(e.target).attr("data-id");
-    // window.location.href = `product.html?id=${itemId}`;
-    // console.log(productData.id);
-    const url = `product.html?id=${productData.id}`;
-    window.location.href = url;
-    // navigateTo(url);
+  if (!$(e.target).hasClass("btn")) {
+    const productBox = $(e.target).closest(".col-md-4");
+    console.log("Product box:", productBox);
+    if (productBox) {
+      const addButton = productBox.find(".btn");
+      const productData = JSON.parse(addButton.attr("data-product"));
+      console.log("Product Data:", productData);
+      const itemId = $(e.target).attr("data-id");
+      const url = `product.html?id=${productData.id}`;
+      window.location.href = url;
+    }
   }
 });
-// console.log(itemsElement);
-// Ensure you have adapted the following code to work with vanilla JS if you're not using jQuery
-// document.querySelectorAll(".add").forEach((button) => {
-//   button.addEventListener("click", function () {
-//     const product = JSON.parse(this.getAttribute("data-product"));
-//     addTocart(product);
-//     // showPopupNotification(product.title);
-//   });
-// });

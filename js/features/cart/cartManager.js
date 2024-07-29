@@ -6,19 +6,22 @@ export default class CartManager {
   constructor() {
     const localStorageSavedItems =
       JSON.parse(localStorage.getItem(CartManager.localStorageKey)) || [];
-    console.log(localStorageSavedItems);
+    // console.log(localStorageSavedItems);
     this.#cartItems = localStorageSavedItems.map((item) =>
       CartItem.formToCartItemInstance(item)
     );
 
-    this.#handelToggleCart();
     this.#handleRender();
     this.#addProductToCart();
     this.#updateCartItem();
+    this.#handelToggleCart();
     // this.#updateLocalStorage();
   }
   #handelToggleCart = function () {
+    const currentUrl = window.location.href;
+    console.log(currentUrl);
     $("#cart").on("click", function () {
+      console.log("123");
       $(".cart-container").removeClass("hide");
     });
     $(".close").on("click", function () {
